@@ -1,6 +1,6 @@
 import { hash } from "bcrypt"
 
-import manexadorDeExcepcions from "../exceptions.mjs";
+import manexadorDeExcepcions from "../excepcions.mjs";
 import { prefixoDaRuta } from "./apiConfiguracion.mjs";
 import { app } from "./inicioExpress.mjs";
 import { ContaDeUsuario, PerfilDeUsuario } from "../db/dbModelos.mjs"

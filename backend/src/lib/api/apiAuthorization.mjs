@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 
 import { prefixoDaRuta } from "./apiConfiguracion.mjs";
 import { app } from "./inicioExpress.mjs";
-import manexadorDeExcepcions from "../exceptions.mjs";
+import manexadorDeExcepcions from "../excepcions.mjs";
 import { ContaDeUsuario } from "../db/dbModelos.mjs"
 
 app.post(prefixoDaRuta+"sesion/", async (peticion, resposta)=>{
