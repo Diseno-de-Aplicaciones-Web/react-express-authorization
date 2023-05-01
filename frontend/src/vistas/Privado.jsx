@@ -1,5 +1,6 @@
 import AccesoPrivado from "../componentes/AccesoPrivado"
 import ControlSesion from "../componentes/ControlSesion"
+import PerfilUsuario from "../componentes/PerfilUsuario"
 
 function Privado() {
     return(
@@ -8,6 +9,7 @@ function Privado() {
         <ControlSesion/>
         <p>Esta é a páxina privada da aplicación de proba de autorización con react.</p>
         <p>Só se pode ver se inicias sesión</p>
+        <PerfilUsuario/>
         </AccesoPrivado>
     )
 }

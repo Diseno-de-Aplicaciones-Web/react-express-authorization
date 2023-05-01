@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Principal from "./vistas/Principal";
 import Privado from "./vistas/Privado";
+import PerfilUsuario from "./componentes/PerfilUsuario";
 
 function App() {
   return (
