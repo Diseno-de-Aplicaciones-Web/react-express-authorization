@@ -24,23 +24,22 @@ const PerfilDeUsuario = db.define('PerfilDeUsuario',{
 })
 
 const Ficheiro = db.define("Fichero",{
-    chaveS3: {
-        type: DataTypes.STRING,
-        unique: true
-    },
-    tipoMime: {
-        type: DataTypes.STRING,
-    },
-    tamanho: {
-        type: DataTypes.INTEGER
+    datos: {
+        type: DataTypes.TEXT,
     }
 })
 
 ContaDeUsuario.hasOne(PerfilDeUsuario)
 PerfilDeUsuario.belongsTo(ContaDeUsuario)
 
-Ficheiro.hasOne(PerfilDeUsuario, { as: "fotoDePerfil"})
-PerfilDeUsuario.belongsTo(Ficheiro, { as: "fotoDePerfil"})
+PerfilDeUsuario.hasOne(Ficheiro, {
+    as: "fotoDePerfil",
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+})
+Ficheiro.belongsTo(PerfilDeUsuario, {
+    as: "fotoDePerfil"
+})
 
 //await db.sync({ alter: true })
 await db.sync()
