@@ -19,12 +19,25 @@ app.post(prefixoDaRuta+"usuarios/", async (peticion, resposta)=>{
 
 app.post(prefixoDaRuta+"usuarios/perfiles/", intermedioAutorization, async (peticion, resposta)=>{
     try {
+
         const usuario = await ContaDeUsuario.findByPk(resposta.locals.autorizacion.id)
-        const perfil = await usuario.createPerfilDeUsuario(peticion.body)
-        perfil.createFotoDePerfil({
-            datos: peticion.body.fichero
-        })
-        resposta.status(201).json(perfil)
+
+        let perfil = await usuario.getPerfilDeUsuario()
+        if ( perfil ) { 
+            await perfil.update(peticion.body)
+        } else {
+            perfil = await usuario.createPerfilDeUsuario(peticion.body)
+        }
+
+        let foto = await perfil.getFotoDePerfil()
+        if ( foto ) {
+            await foto.update({ datos: peticion.body.fichero })
+        } else {
+            await perfil.createFotoDePerfil({ datos: peticion.body.fichero })
+        }
+
+        resposta.sendStatus(201)
+
     } catch (excepcion) {
         manexadorDeExcepcions(excepcion, resposta)
     }

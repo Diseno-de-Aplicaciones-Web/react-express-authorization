@@ -1,6 +1,6 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { aDataURL } from "../lib/ficheros.mjs"
-import { enviarPerfil } from "../lib/fetch.jsx"
+import { recuperarPerfil, enviarPerfil } from "../lib/fetch.jsx"
 import { contextoAutorizacion } from "../servicios/Autorizacion.jsx"
 import style from "./PerfilUsuario.module.css"
 
@@ -24,7 +24,8 @@ function PerfilUsuario() {
     }
     function manexadorFichero(evento) {
         const fichero = evento.target.files[0]
-        aDataURL(fichero, setFichero)
+        if (fichero) aDataURL(fichero, setFichero)
+        else setFichero("")
     }
     function manexadorEnviar() {
         const perfil = {
@@ -33,11 +34,27 @@ function PerfilUsuario() {
             correoElectronico,
             fichero
         }
-        enviarPerfil(perfil, paseAutorizacion, manejadorEnvio)
+        enviarPerfil(perfil, paseAutorizacion, manejadorResultadoEnvio)
     }
-    function manejadorEnvio(datos) {
+    function manejadorResultadoEnvio(datos) {
         if ( datos === false ) alert("No ha sido posible guardar el perfil")
     }
+    function obtenerDatosPerfil(){
+        recuperarPerfil(paseAutorizacion,rellenarDatosPerfil)
+    }
+    function rellenarDatosPerfil(datosPerfil) {
+        if (datosPerfil) {
+            setNome(datosPerfil.nome)
+            setTelefono(datosPerfil.telefono)
+            setCorreoElectronico(datosPerfil.correoElectronico)
+            setFichero(datosPerfil.fotoDePerfil.datos)
+        }
+    }
+
+    useEffect(
+        obtenerDatosPerfil,
+        [paseAutorizacion]
+    )
 
     return (
         <div className={style.centrado+" "+style.contenedor}>
