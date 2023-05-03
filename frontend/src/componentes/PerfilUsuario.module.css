@@ -1,0 +1,23 @@
+.contenedor {
+    position: relative;
+}
+
+.bloque {
+    display: block;
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.imagen{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    max-width: 100px;
+    max-height: 100px;
+    z-index: -1;
+}
