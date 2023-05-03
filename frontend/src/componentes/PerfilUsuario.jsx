@@ -1,11 +1,11 @@
 import { useState, useContext } from "react"
 import { aDataURL } from "../lib/ficheros.mjs"
 import { enviarPerfil } from "../lib/fetch.jsx"
-import { contexto } from "../servicios/Contexto.jsx"
+import { contextoAutorizacion } from "../servicios/Autorizacion.jsx"
 
 function PerfilUsuario() {
 
-    const { datos } = useContext(contexto)
+    const { paseAutorizacion } = useContext(contextoAutorizacion)
 
     const [ nome, setNome ] = useState("")
     const [ telefono, setTelefono ] = useState("")
@@ -32,7 +32,7 @@ function PerfilUsuario() {
             correoElectronico,
             fichero
         }
-        enviarPerfil(perfil, datos.paseAutorizacion, manejadorEnvio)
+        enviarPerfil(perfil, paseAutorizacion, manejadorEnvio)
     }
     function manejadorEnvio(datos) {
         if ( datos === false ) alert("No ha sido posible guardar el perfil")

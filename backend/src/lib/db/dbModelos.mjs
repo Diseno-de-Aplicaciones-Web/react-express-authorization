@@ -41,7 +41,7 @@ Ficheiro.belongsTo(PerfilDeUsuario, {
     as: "fotoDePerfil"
 })
 
-//await db.sync({ alter: true })
+// await db.sync({ alter: true })
 await db.sync()
 
 export {
