@@ -1,13 +1,12 @@
-import { ProveedorDeContexto } from "./servicios/Contexto";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Principal from "./vistas/Principal";
 import Privado from "./vistas/Privado";
-import PerfilUsuario from "./componentes/PerfilUsuario";
+import { ProveedorAutorizacion } from "./servicios/Autorizacion";
 
 function App() {
   return (
-    <ProveedorDeContexto>
+    <ProveedorAutorizacion>
       <h1>Exemplo autorizacion</h1>
       <BrowserRouter>
       <nav>
@@ -23,7 +22,7 @@ function App() {
         </Routes>
       </main>
       </BrowserRouter>
-    </ProveedorDeContexto>
+    </ProveedorAutorizacion>
   );
 }
 
