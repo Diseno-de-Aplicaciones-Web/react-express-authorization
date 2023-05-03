@@ -20,8 +20,8 @@ app.post(prefixoDaRuta+"sesion/", async (peticion, resposta)=>{
         )
 
         if (autentificado) {
-            const token = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET)
-            return resposta.send(token)
+            const paseAutorizacion = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET)
+            return resposta.send(paseAutorizacion)
         }
 
         return resposta.sendStatus(401)
