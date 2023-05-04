@@ -1,0 +1,56 @@
+<script>
+
+    export let abierto = false
+
+    function cerrar() {
+        abierto = false
+    }
+
+</script>
+
+{#if abierto}
+<div class="envoltorio">
+    <div class="contenedor sombra">
+        <button class="cerrar sombra" on:click={cerrar}>
+            x
+        </button>
+        <slot/>
+    </div>
+</div>
+{/if}
+
+<style>
+.envoltorio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.contenedor {
+    position: relative;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 1em;
+}
+.cerrar {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    border: none;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+}
+.sombra {
+    box-shadow: 1px 1px 5px gray;
+}
+.cerrar:active{
+    box-shadow: none;
+}
+</style>
