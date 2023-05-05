@@ -7,7 +7,7 @@ import { ProveedorAutorizacion } from "./servicios/Autorizacion";
 function App() {
   return (
     <ProveedorAutorizacion>
-      <h1>Exemplo autorizacion</h1>
+      <h1>Exemplo autorizacion con React</h1>
       <BrowserRouter>
       <nav>
         <ul>
