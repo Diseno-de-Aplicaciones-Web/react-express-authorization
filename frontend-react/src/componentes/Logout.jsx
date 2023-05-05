@@ -5,7 +5,7 @@ import { contextoAutorizacion } from "../servicios/Autorizacion";
 
 function Logout({rutaDestino}) {
 
-    const { paseAutorizacion, cerrarSesion } = useContext(contextoAutorizacion)
+    const { autorizado, cerrarSesion } = useContext(contextoAutorizacion)
     const navigate = useNavigate()
 
     function manexadorBoton() {
@@ -15,7 +15,7 @@ function Logout({rutaDestino}) {
 
     return (
         <>
-        { paseAutorizacion && <button onClick={manexadorBoton}>Logout</button> }
+        { autorizado && <button onClick={manexadorBoton}>Logout</button> }
         </>
     )
 

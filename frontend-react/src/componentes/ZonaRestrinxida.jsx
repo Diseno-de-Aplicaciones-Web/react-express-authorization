@@ -3,10 +3,10 @@ import { contextoAutorizacion } from "../servicios/Autorizacion"
 import Login from "./Login"
 
 function ZonaRestrinxida({children}) {
-    const { paseAutorizacion } = useContext(contextoAutorizacion)
+    const { autorizado } = useContext(contextoAutorizacion)
     return(
         <>
-        { paseAutorizacion ? children : <Login/> }
+        { autorizado ? children : <Login/> }
         </>
     )
 }

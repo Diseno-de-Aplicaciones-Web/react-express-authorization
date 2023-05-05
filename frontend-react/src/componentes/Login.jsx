@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { contextoAutorizacion } from "../servicios/Autorizacion";
+import { gardarPaseAutorizacion, estaAutorizado } from "../servicios/Autorizacion";
 import { obtenerPase } from "../lib/fetch";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css"
@@ -8,7 +9,7 @@ function Login({rutaDestino}) {
 
     const navigate = useNavigate()
 
-    const { paseAutorizacion, guardarPase } = useContext(contextoAutorizacion)
+    const { autorizado, guardarPase } = useContext(contextoAutorizacion)
 
     const [ usuario, setUsuario ] = useState("")
     const [ contrasinal, setContrasinal] = useState("")
@@ -35,7 +36,7 @@ function Login({rutaDestino}) {
 
     return (
         <>
-        { ! paseAutorizacion && 
+        { ! autorizado && 
             <div className={styles.contenedor}>
                 <label>
                     Usuario

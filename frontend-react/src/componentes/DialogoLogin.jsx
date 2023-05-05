@@ -5,7 +5,7 @@ import { contextoAutorizacion } from "../servicios/Autorizacion"
 
 function DialogoLogin({rutaDestino}) {
 
-    const { paseAutorizacion } = useContext(contextoAutorizacion)
+    const { autorizado } = useContext(contextoAutorizacion)
     const estadoDialogo = useState(false)
     const [ mostrarLogin, setMostrarLogin ] = estadoDialogo
 
@@ -15,7 +15,7 @@ function DialogoLogin({rutaDestino}) {
 
     return(
         <>
-        { ! paseAutorizacion &&
+        { ! autorizado &&
             <>
             <button onClick={abrirDialogo} disabled={mostrarLogin}>Login</button>
             <Dialogo estado={estadoDialogo}>
