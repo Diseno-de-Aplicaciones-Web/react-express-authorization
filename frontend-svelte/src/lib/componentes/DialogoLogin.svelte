@@ -1,5 +1,6 @@
 <script>
-    import { paseAutorizacion } from "../servicios/servizoAutorizacion.mjs";
+
+    import { autorizado } from "../servicios/servizoAutorizacion.mjs";
     import Dialogo from "./Dialogo.svelte";
     import Login from "./Login.svelte";
 
@@ -12,7 +13,7 @@
 
 </script>
 
-{#if ! $paseAutorizacion}
+{#if ! $autorizado }
 <button on:click={abrirDialogo} disabled={mostrarLogin}>Login</button>
 <Dialogo bind:abierto={mostrarLogin}>
     <Login rutaDestino={rutaDestino}/>

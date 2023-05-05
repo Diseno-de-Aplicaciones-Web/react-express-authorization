@@ -1,7 +1,8 @@
 <script>
     
     import { navigate } from "svelte-routing";
-    import { paseAutorizacion, pecharSesion } from "../servicios/servizoAutorizacion.mjs"
+    // import { paseAutorizacion, pecharSesion } from "../servicios/servizoAutorizacion.mjs"
+    import { autorizado, pecharSesion } from "../servicios/servizoAutorizacion.mjs"
 
     export let rutaDestino = null
 
@@ -12,6 +13,7 @@
 
 </script>
 
-{#if $paseAutorizacion}
+<!-- {#if $paseAutorizacion} -->
+{#if $autorizado}
     <button class="boton" on:click={manexadorBoton}>Pechar sesion</button>
 {/if}

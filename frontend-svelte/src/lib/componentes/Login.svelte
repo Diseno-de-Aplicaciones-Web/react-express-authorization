@@ -1,6 +1,6 @@
 <script>
     import { navigate } from "svelte-routing";
-    import { paseAutorizacion, gardarPaseAutorizacion } from "../servicios/servizoAutorizacion.mjs"
+    import { gardarPaseAutorizacion, autorizado } from "../servicios/servizoAutorizacion.mjs"
     import { obtenerPase } from "../fetch.mjs"
 
     export let rutaDestino = null
@@ -10,7 +10,7 @@
         obtenerPase(usuario, contrasinal, verificarResultado)
     }
 
-    function verificarResultado(pase) {
+    async function verificarResultado(pase) {
         if(pase) { 
             gardarPaseAutorizacion(pase)
             if (rutaDestino) navigate(rutaDestino)
@@ -20,7 +20,7 @@
 
 </script>
 
-{#if ! $paseAutorizacion}
+{#if ! $autorizado }
 <div class="contenedor">
     <label>
         Usuario
