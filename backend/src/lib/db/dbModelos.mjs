@@ -25,7 +25,7 @@ const PerfilDeUsuario = db.define('PerfilDeUsuario',{
 
 const Ficheiro = db.define("Fichero",{
     datos: {
-        type: DataTypes.TEXT,
+        type: DataTypes.TEXT("long"),
     }
 })
 
