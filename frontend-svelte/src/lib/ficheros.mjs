@@ -1,7 +1,14 @@
-function aDataURL(fichero, manejador) {
-    const reader = new FileReader();
-    reader.addEventListener("load", ()=>manejador(reader.result), false);
-    reader.readAsDataURL(fichero);
+function aDataURL(fichero) {
+    return new Promise((resolve, reject)=>{
+        try {
+            const reader = new FileReader();
+            reader.addEventListener("load", ()=> resolve(reader.result), false);
+            reader.readAsDataURL(fichero);
+        } catch (excepcion) {
+            reject(excepcion)
+        }
+
+    })
 }
 
 export {
