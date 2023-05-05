@@ -1,5 +1,6 @@
 <script>
     import Logout from "../componentes/Logout.svelte";
+    import PerfilUsuario from "../componentes/PerfilUsuario.svelte";
     import ZonaRestrinxida from "../componentes/ZonaRestrinxida.svelte";
 </script>
 
@@ -10,4 +11,5 @@
 <ZonaRestrinxida>
 <p>Esta é a túa área privada.</p>
 <p>É necesario ter unha sesión iniciada para poder acceder.</p>
+<PerfilUsuario/>
 </ZonaRestrinxida>
