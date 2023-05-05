@@ -48,15 +48,15 @@
         <img class="imagen" src={fichero} alt="Imagen de perfil." />
         <label>
             Nombre
-            <input class="bloque" type="text" value={nome}/>
+            <input class="bloque" type="text" bind:value={nome}/>
         </label>
         <label>
             Teléfono
-            <input class="bloque" type="tel" value={telefono}/>
+            <input class="bloque" type="tel" bind:value={telefono}/>
         </label>
         <label>
             Correo
-            <input class="bloque" type="email" value={correoElectronico}/>
+            <input class="bloque" type="email" bind:value={correoElectronico}/>
         </label>
         <label>
             Imagen de perfil
