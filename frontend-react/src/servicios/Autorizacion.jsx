@@ -6,7 +6,7 @@ const claveStorage = "paseAutorizacion"
 
 function ProveedorAutorizacion({children}) {
 
-    const [ paseAutorizacion, setPaseAutorizacion ] = useState(false)
+    const [ paseAutorizacion, setPaseAutorizacion ] = useState(storage.getItem(claveStorage) ?? false)
     const [ autorizado, setAutorizado ] = useState(!!paseAutorizacion)
 
     function guardarPase(pase){
